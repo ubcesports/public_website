@@ -1,0 +1,9 @@
+.env
+.env.local
+
+# direnv
+.direnv/
+.envrc
+
+# nix
+shell.nix
