@@ -3,13 +3,35 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent-blue: #0069ff;
+  --header-light-blue: #95b3ff;
+  --darker-light-blue: #7195ff;
+  --bg-dark-blue: #0e1336;
+  --bg-gray: #2d344a;
+  --teal: #b5f6ff;
+  --space-purple: #1e19bf;
+  --space-teal: #0891e1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent-blue: var(--accent-blue);
+  --color-header-light-blue: var(--header-light-blue);
+  --color-darker-light-blue: var(--darker-light-blue);
+  --color-bg-dark-blue: var(--bg-dark-blue);
+  --color-bg-gray: var(--bg-gray);
+  --color-teal: var(--teal);
+  --color-space-purple: var(--space-purple);
+  --color-space-teal: var(--space-teal);
+
+  --font-wordmark: var(--font-stretch-pro);
+  --font-title: var(--font-ethnocentric);
+  --font-header: var(--font-haverbrooke);
+  --font-hollow: var(--font-haverbrooke-hollow);
+  --font-game: var(--font-lexend-exa);
+  --font-sans: var(--font-nata-sans);
+  --font-mono: var(--font-cascadia-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +44,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-nata-sans), Arial, Helvetica, sans-serif;
 }
