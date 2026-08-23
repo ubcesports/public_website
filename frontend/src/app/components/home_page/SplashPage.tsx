@@ -49,7 +49,7 @@ export default function SplashPage() {
           className="mb-3 h-auto w-full max-w-200"
         />
 
-        <span className="mb-6 max-w-full bg-[#2D344A] p-2 text-center font-mono md:text-2xl text-lg text-bold">
+        <span className="mb-6 max-w-full bg-[#2D344A] rounded-xl p-2 shadow-2xl text-center font-mono md:text-2xl text-lg text-bold">
           September 25TH, 2026 - AMS Nest Great Hall
         </span>
 
