@@ -3,6 +3,7 @@ import { Cascadia_Mono, Lexend_Exa, Nata_Sans } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import Header from "./components/header/Header";
+import Footer from "./components/Footer";
 
 // UBCEA Wordmark
 const stretchPro = localFont({
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
