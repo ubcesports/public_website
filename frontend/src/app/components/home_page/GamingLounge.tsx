@@ -1,10 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import GradientButton from "../GradientButton";
+import ScrollDownButton from "../ScrollDownButton";
 
 const GamingLounge = () => {
   return (
-    <section className="relative min-h-svh w-full overflow-hidden">
+    <section
+      id="gaming-lounge"
+      className="relative min-h-svh w-full overflow-hidden"
+    >
       {/* Background image */}
       <Image
         src="/images/gaming_lounge.jpg"
@@ -52,6 +56,8 @@ const GamingLounge = () => {
           </GradientButton>
         </div>
       </div>
+
+      <ScrollDownButton href="#game-departments" label="game depts" />
     </section>
   );
 };

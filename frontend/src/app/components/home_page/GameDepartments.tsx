@@ -76,7 +76,10 @@ const depts = [
 
 const GameDepartments = () => {
   return (
-    <section className="relative min-h-svh w-full overflow-hidden">
+    <section
+      id="game-departments"
+      className="relative min-h-svh w-full overflow-hidden"
+    >
       {/* Background Base */}
       <div
         aria-hidden="true"
@@ -146,7 +149,7 @@ const GameDepartments = () => {
           ))}
         </div>
 
-        <h3 className="mt-10 font-sans text-2xl font-semibold text-gray-100 [text-shadow:1px_1px_3px_rgba(0,0,0,0.4)]">
+        <h3 className="mt-10 font-sans lg:text-2xl text-lg font-semibold text-gray-100 [text-shadow:1px_1px_3px_rgba(0,0,0,0.4)]">
           Don’t see your game on the list? Apply to be a{" "}
           <Link href="/" className="font-bold underline text-white">
             community lead

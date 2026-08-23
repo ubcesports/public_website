@@ -1,5 +1,6 @@
 import Image from "next/image";
 import GradientButton from "../GradientButton";
+import ScrollDownButton from "../ScrollDownButton";
 
 export default function SplashPage() {
   return (
@@ -56,6 +57,8 @@ export default function SplashPage() {
           learn more
         </GradientButton>
       </div>
+
+      <ScrollDownButton href="#about-us" label="about us" />
     </section>
   );
 }
