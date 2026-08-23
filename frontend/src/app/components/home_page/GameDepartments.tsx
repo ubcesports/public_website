@@ -95,18 +95,20 @@ const GameDepartments = () => {
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-20 pb-10 sm:px-10 lg:px-10">
         {/* Title */}
-        <div className="grid w-fit pb-4 mb-5">
+        <div className="mb-8 grid w-full place-items-center pb-6 md:mb-5 md:w-fit md:place-items-start md:pb-4">
           <span
+            aria-hidden="true"
             className="
               font-hollow
               col-start-1 row-start-1
-              -translate-y-5
-              whitespace-nowrap
-              text-6xl uppercase leading-none
+              translate-y-[-0.3em] md:-translate-y-5
+              text-center text-[clamp(1.375rem,7.5vw,2.25rem)] uppercase
+              leading-[1.65] md:whitespace-nowrap md:text-[clamp(2.25rem,5vw,3.75rem)] md:leading-none
               text-white
             "
           >
-            Game Departments
+            <span className="block md:inline">Game</span>{" "}
+            <span className="block md:inline">Departments</span>
           </span>
 
           <h2
@@ -115,25 +117,28 @@ const GameDepartments = () => {
               font-header
               relative z-10
               col-start-1 row-start-1
-              whitespace-nowrap
-              text-6xl uppercase leading-none
+              text-center text-[clamp(1.375rem,7.5vw,2.25rem)] uppercase
+              leading-[1.65] md:whitespace-nowrap md:text-[clamp(2.25rem,5vw,3.75rem)] md:leading-none
               text-bg-dark-blue
             "
           >
-            Game Departments
+            <span className="block md:inline">Game</span>{" "}
+            <span className="block md:inline">Departments</span>
           </h2>
 
           <span
+            aria-hidden="true"
             className="
               font-hollow
               col-start-1 row-start-1
-              translate-y-5
-              whitespace-nowrap
-              text-6xl uppercase leading-none
+              translate-y-[0.3em] md:translate-y-5
+              text-center text-[clamp(1.375rem,7.5vw,2.25rem)] uppercase
+              leading-[1.65] md:whitespace-nowrap md:text-[clamp(2.25rem,5vw,3.75rem)] md:leading-none
               text-bg-gray
             "
           >
-            Game Departments
+            <span className="block md:inline">Game</span>{" "}
+            <span className="block md:inline">Departments</span>
           </span>
         </div>
 
