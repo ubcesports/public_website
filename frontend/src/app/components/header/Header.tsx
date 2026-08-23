@@ -3,7 +3,7 @@
 import Link from "next/link";
 import HeaderLogo from "./HeaderLogo";
 import GradientButton from "../GradientButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
@@ -22,12 +22,51 @@ const navLinkClasses =
   "focus-visible:outline-teal";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [headerOpacity, setHeaderOpacity] = useState(1);
+
+  useEffect(() => {
+    let animationFrame: number | null = null;
+
+    const updateOpacity = () => {
+      const hero = document.querySelector<HTMLElement>(
+        "main > section:first-child",
+      );
+      const fadeDistance = (hero?.offsetHeight ?? window.innerHeight) * 0.25;
+      const opacity = Math.max(0, 1 - window.scrollY / fadeDistance);
+
+      setHeaderOpacity(opacity);
+      animationFrame = null;
+    };
+
+    const handleScroll = () => {
+      if (animationFrame === null) {
+        animationFrame = window.requestAnimationFrame(updateOpacity);
+      }
+    };
+
+    updateOpacity();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, []);
 
   return (
     <header
+      style={{
+        opacity: isMenuOpen ? 1 : headerOpacity,
+        pointerEvents: !isMenuOpen && headerOpacity < 0.05 ? "none" : "auto",
+      }}
       className={`
-        fixed top-0 left-0 z-50 w-full
+        fixed top-0 left-0 z-50 w-full transition-opacity duration-75
         ${
           isMenuOpen
             ? "bg-bg-dark-blue"
