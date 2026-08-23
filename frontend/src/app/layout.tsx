@@ -56,7 +56,10 @@ const cascadiaMono = Cascadia_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UBCEA",
+  title: {
+    default: "UBCEA",
+    template: "%s | UBCEA",
+  },
   description: "UBC Esports Association",
 };
 
