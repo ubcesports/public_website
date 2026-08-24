@@ -22,7 +22,7 @@ const GradientButton = ({
         ${textSize} font-bold text-bg-dark-blue
         bg-linear-to-r from-teal to-darker-light-blue
         shadow-[0_0_18px_var(--header-light-blue)]
-        transition-[color,transform,filter] duration-300 ease-out
+        transition-[color,transform,filter] duration-500 ease-out
         hover:scale-[1.05] hover:text-white hover:from-space-teal hover:to-space-purple
       `}
     >

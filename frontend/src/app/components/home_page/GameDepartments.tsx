@@ -34,8 +34,8 @@ const depts = [
   },
   {
     title: "Rhythm Games",
-    href: "/departments/rhythm",
-    imageSrc: "/departments/rhythm.jpg",
+    href: "/departments/rg",
+    imageSrc: "/departments/rg.jpg",
   },
   {
     title: "Rocket League",

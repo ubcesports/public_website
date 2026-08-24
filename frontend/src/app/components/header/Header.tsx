@@ -5,6 +5,7 @@ import HeaderLogo from "./HeaderLogo";
 import GradientButton from "../GradientButton";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import cx from "classnames";
 
 const navItems = [
   { label: "lounge", href: "/lounge" },
@@ -65,14 +66,12 @@ export default function Header() {
         opacity: isMenuOpen ? 1 : headerOpacity,
         pointerEvents: !isMenuOpen && headerOpacity < 0.05 ? "none" : "auto",
       }}
-      className={`
-        fixed top-0 left-0 z-50 w-full transition-opacity duration-75
-        ${
-          isMenuOpen
-            ? "bg-bg-dark-blue"
-            : "bg-[linear-gradient(to_bottom,var(--bg-dark-blue)_0%,var(--bg-dark-blue)_35%,color-mix(in_srgb,var(--bg-dark-blue)_95%,transparent)_50%,color-mix(in_srgb,var(--bg-dark-blue)_85%,transparent)_62%,color-mix(in_srgb,var(--bg-dark-blue)_70%,transparent)_72%,color-mix(in_srgb,var(--bg-dark-blue)_50%,transparent)_82%,color-mix(in_srgb,var(--bg-dark-blue)_30%,transparent)_90%,color-mix(in_srgb,var(--bg-dark-blue)_12%,transparent)_96%,transparent_100%)]"
-        }
-      `}
+      className={cx(
+        "fixed top-0 left-0 z-50 w-full transition-opacity duration-75",
+        isMenuOpen
+          ? "bg-bg-dark-blue"
+          : "bg-[linear-gradient(to_bottom,var(--bg-dark-blue)_0%,var(--bg-dark-blue)_35%,color-mix(in_srgb,var(--bg-dark-blue)_95%,transparent)_50%,color-mix(in_srgb,var(--bg-dark-blue)_85%,transparent)_62%,color-mix(in_srgb,var(--bg-dark-blue)_70%,transparent)_72%,color-mix(in_srgb,var(--bg-dark-blue)_50%,transparent)_82%,color-mix(in_srgb,var(--bg-dark-blue)_30%,transparent)_90%,color-mix(in_srgb,var(--bg-dark-blue)_12%,transparent)_96%,transparent_100%)]",
+      )}
     >
       <div className="relative z-10 flex w-full items-center px-5 py-4">
         {/* Logo */}

@@ -18,21 +18,21 @@ export default function SplashPage() {
       {/* Content */}
       <div className="relative z-10 flex min-h-svh flex-col items-center justify-center px-4 py-20">
         <div className="flex w-full items-center justify-center gap-2 sm:gap-3">
-          <Image
+          {/* <Image
             src="/logo/logo_variant_1.png"
             alt=""
             width={322}
             height={313}
             priority
             className="h-auto w-20 md:w-30"
-          />
+          /> */}
           <Image
             src="/logo/logo_variant_text.png"
             alt="UBC Esports"
             width={640}
             height={277}
             priority
-            className="h-auto w-48 md:w-70"
+            className="h-auto w-52 md:w-80"
           />
         </div>
 

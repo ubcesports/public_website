@@ -18,7 +18,7 @@ const GameDepartmentCard = ({
       className="
         relative block h-28 w-full overflow-hidden rounded
         shadow-[0_6px_10px_rgb(14_19_54/45%)]
-        transition-[transform,box-shadow] duration-300 ease-out
+        transition-[scale,box-shadow] duration-400 ease-out
         hover:z-20 hover:scale-[1.03]
         hover:shadow-[0_10px_20px_rgb(14_19_54/55%)]
         focus-visible:z-20 focus-visible:scale-[1.03]
