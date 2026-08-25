@@ -156,6 +156,7 @@ const GameDepartments = () => {
 
         <h3 className="mt-10 font-sans lg:text-2xl text-lg font-semibold text-gray-100 [text-shadow:1px_1px_3px_rgba(0,0,0,0.4)]">
           Don’t see your game on the list? Apply to be a{" "}
+          {/* TODO: Add link for community lead applications */}
           <Link href="/" className="font-bold underline text-white">
             community lead
           </Link>{" "}

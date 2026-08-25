@@ -46,6 +46,7 @@ const GameDepartmentCard = ({
           flex items-center justify-center
           px-4 text-center
           text-4xl uppercase text-white font-bold
+          [text-shadow:1px_1px_3px_rgba(0,0,0,0.4)]
         "
       >
         {title}
