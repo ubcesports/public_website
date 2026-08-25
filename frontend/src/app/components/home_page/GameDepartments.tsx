@@ -49,8 +49,8 @@ const depts = [
   },
   {
     title: "Smash Melee",
-    href: "/departments/smashmelee",
-    imageSrc: "/departments/smashmelee.jpg",
+    href: "/departments/ssbm",
+    imageSrc: "/departments/ssbm.jpg",
   },
   {
     title: "Splatoon",
@@ -71,6 +71,11 @@ const depts = [
     title: "Valorant",
     href: "/departments/val",
     imageSrc: "/departments/val.jpg",
+  },
+  {
+    title: "Geoguessr",
+    href: "/departments/geoguessr",
+    imageSrc: "/departments/geoguessr.jpg",
   },
 ] as const;
 
