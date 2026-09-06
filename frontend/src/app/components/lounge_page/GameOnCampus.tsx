@@ -4,7 +4,7 @@ const GameOnCampus = () => {
   return (
     <section
       id="game-on-campus"
-      className="w-full scroll-mt-24 px-5 py-12 sm:py-14"
+      className="w-full scroll-mt-0 px-5 py-12 sm:py-14"
     >
       <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
         <h2 className="mb-3 font-header text-2xl uppercase text-header-light-blue sm:text-3xl lg:text-4xl">
