@@ -8,6 +8,7 @@
   --darker-light-blue: #7195ff;
   --bg-dark-blue: #0e1336;
   --bg-gray: #2d344a;
+  --bg-indigo: #3b3775;
   --teal: #b5f6ff;
   --space-purple: #1e19bf;
   --space-teal: #0891e1;
@@ -21,6 +22,7 @@
   --color-darker-light-blue: var(--darker-light-blue);
   --color-bg-dark-blue: var(--bg-dark-blue);
   --color-bg-gray: var(--bg-gray);
+  --color-bg-indigo: var(--bg-indigo);
   --color-teal: var(--teal);
   --color-space-purple: var(--space-purple);
   --color-space-teal: var(--space-teal);
