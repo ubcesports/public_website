@@ -7,11 +7,7 @@ type GameDepartmentCardProps = {
   imageSrc: string;
 };
 
-const GameDepartmentCard = ({
-  title,
-  href,
-  imageSrc,
-}: GameDepartmentCardProps) => {
+const GameDepartmentCard = ({ title, href, imageSrc }: GameDepartmentCardProps) => {
   return (
     <Link
       href={href}

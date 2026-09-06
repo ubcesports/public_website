@@ -122,17 +122,12 @@ const Footer = () => {
 
       {/* Navigation */}
       <div className="flex flex-col lg:mt-0 mt-10">
-        <h3 className="font-sans text-teal mb-4 text-2xl font-bold">
-          Navigation
-        </h3>
+        <h3 className="font-sans text-teal mb-4 text-2xl font-bold">Navigation</h3>
 
         <ul className="flex flex-col gap-y-1">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className="text-white text-xl hover:underline"
-              >
+              <Link href={item.href} className="text-white text-xl hover:underline">
                 {item.label}
               </Link>
             </li>

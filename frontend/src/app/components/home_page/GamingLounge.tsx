@@ -5,10 +5,7 @@ import ScrollDownButton from "../ScrollDownButton";
 
 const GamingLounge = () => {
   return (
-    <section
-      id="gaming-lounge"
-      className="relative min-h-svh w-full overflow-hidden"
-    >
+    <section id="gaming-lounge" className="relative min-h-svh w-full overflow-hidden">
       {/* Background image */}
       <Image
         src="/images/gaming_lounge.jpg"
@@ -44,9 +41,8 @@ const GamingLounge = () => {
             </h3>
           </div>
           <p className="text-center font-sans text-base leading-relaxed text-white sm:text-lg lg:text-2xl">
-            Bored between classes? Come play in the UBCEA Gaming Lounge! We
-            offer 20 high-spec Gaming PCs, and 50% off our 2 rhythm game arcade
-            cabs (CHUNITHM & Wacca)!
+            Bored between classes? Come play in the UBCEA Gaming Lounge! We offer 20 high-spec
+            Gaming PCs, and 50% off our 2 rhythm game arcade cabs (CHUNITHM & Wacca)!
           </p>
           <h4 className="my-6 text-center font-sans text-base font-extrabold sm:text-lg lg:text-2xl">
             HOURS: Weekdays, 12pm - 5pm
