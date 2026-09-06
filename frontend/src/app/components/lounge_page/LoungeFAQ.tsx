@@ -55,7 +55,7 @@ const LoungeFAQ = () => {
         </h2>
 
         <div className="flex flex-col gap-5">
-          {faqs.map((faq) => (
+          {FAQS.map((faq) => (
             <Disclosure key={faq.question} summary={faq.question}>
               <p className="font-sans text-base leading-relaxed text-white/75 sm:text-lg">
                 {faq.answer}

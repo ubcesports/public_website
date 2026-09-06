@@ -12,7 +12,7 @@ const Disclosure = ({
   summary,
   children,
   defaultOpen = true,
-  className = "font-sans text-base font-bold text-white sm:text-lg",
+  summaryClasses = "font-sans text-base font-bold text-white sm:text-lg",
 }: DisclosureProps) => {
   return (
     <details open={defaultOpen} className="group">
