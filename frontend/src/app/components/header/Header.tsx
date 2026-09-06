@@ -30,9 +30,7 @@ export default function Header() {
     let animationFrame: number | null = null;
 
     const updateOpacity = () => {
-      const hero = document.querySelector<HTMLElement>(
-        "main > section:first-child",
-      );
+      const hero = document.querySelector<HTMLElement>("main > section:first-child");
       const fadeDistance = (hero?.offsetHeight ?? window.innerHeight) * 0.25;
       const opacity = Math.max(0, 1 - window.scrollY / fadeDistance);
 
@@ -89,9 +87,7 @@ export default function Header() {
             ))}
 
             <li>
-              <GradientButton href="https://app.ubcesports.ca/login">
-                join us
-              </GradientButton>
+              <GradientButton href="https://app.ubcesports.ca/login">join us</GradientButton>
             </li>
           </ul>
         </nav>
@@ -130,19 +126,14 @@ export default function Header() {
             <ul className="flex flex-col items-center gap-4 pt-5">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`${navLinkClasses} text-2xl`}
-                  >
+                  <Link href={item.href} className={`${navLinkClasses} text-2xl`}>
                     {item.label}
                   </Link>
                 </li>
               ))}
 
               <li className="mt-3">
-                <GradientButton href="https://app.ubcesports.ca/login">
-                  join us
-                </GradientButton>
+                <GradientButton href="https://app.ubcesports.ca/login">join us</GradientButton>
               </li>
             </ul>
           </nav>

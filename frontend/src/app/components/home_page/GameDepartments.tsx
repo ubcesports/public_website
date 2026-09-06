@@ -81,10 +81,7 @@ const depts = [
 
 const GameDepartments = () => {
   return (
-    <section
-      id="game-departments"
-      className="relative min-h-svh w-full overflow-hidden"
-    >
+    <section id="game-departments" className="relative min-h-svh w-full overflow-hidden">
       {/* Background Base */}
       <div
         aria-hidden="true"
@@ -165,8 +162,7 @@ const GameDepartments = () => {
           <Link href="/" className="font-bold underline text-white">
             community lead
           </Link>{" "}
-          and host events for your game! Hiring rounds are in the fall, winter,
-          and summer.
+          and host events for your game! Hiring rounds are in the fall, winter, and summer.
         </h3>
       </div>
     </section>

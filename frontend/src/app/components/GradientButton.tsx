@@ -7,11 +7,7 @@ type GradientButtonProps = {
   textSize?: string;
 };
 
-const GradientButton = ({
-  href,
-  children,
-  textSize = "text-base",
-}: GradientButtonProps) => {
+const GradientButton = ({ href, children, textSize = "text-base" }: GradientButtonProps) => {
   return (
     <Link
       href={href}

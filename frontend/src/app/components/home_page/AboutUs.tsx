@@ -5,10 +5,7 @@ import ScrollDownButton from "../ScrollDownButton";
 
 const AboutUs = () => {
   return (
-    <section
-      id="about-us"
-      className="relative min-h-svh w-full scroll-mt-0 overflow-hidden"
-    >
+    <section id="about-us" className="relative min-h-svh w-full scroll-mt-0 overflow-hidden">
       {/* Background image */}
       <Image
         src="/images/about_us.jpg"
@@ -44,16 +41,12 @@ const AboutUs = () => {
             </h3>
           </div>
           <p className="mb-7 text-center font-sans text-base leading-relaxed text-white sm:text-lg lg:text-2xl">
-            The UBC Esports Association is a non-profit, student run
-            organization based out of the University of British Columbia. Our
-            vision is to foster an inclusive gaming community in Greater
-            Vancouver. No matter what games you play, we hope you’ll find people
-            who share the same passion!
+            The UBC Esports Association is a non-profit, student run organization based out of the
+            University of British Columbia. Our vision is to foster an inclusive gaming community in
+            Greater Vancouver. No matter what games you play, we hope you’ll find people who share
+            the same passion!
           </p>
-          <GradientButton
-            href="https://discord.gg/ubcesports"
-            textSize="md:text-xl text-md"
-          >
+          <GradientButton href="https://discord.gg/ubcesports" textSize="md:text-xl text-md">
             join our discord
           </GradientButton>
         </div>

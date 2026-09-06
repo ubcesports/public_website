@@ -6,10 +6,7 @@ type ScrollDownButtonProps = {
   ariaLabel?: string;
 };
 
-export default function ScrollDownButton({
-  href,
-  label = "explore",
-}: ScrollDownButtonProps) {
+export default function ScrollDownButton({ href, label = "explore" }: ScrollDownButtonProps) {
   return (
     <a
       href={href}
