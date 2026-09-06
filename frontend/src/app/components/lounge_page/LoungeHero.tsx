@@ -1,8 +1,9 @@
 import Image from "next/image";
+import ScrollDownButton from "../ScrollDownButton";
 
 const LoungeHero = () => {
   return (
-    <section className="relative flex h-[70svh] max-h-176 min-h-100 w-full items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-svh w-full items-center justify-center overflow-hidden">
       {/* Background image */}
       <Image
         src="/images/gaming_lounge.jpg"
@@ -59,6 +60,8 @@ const LoungeHero = () => {
           Open throughout the school year in the AMS Nest
         </p>
       </div>
+
+      <ScrollDownButton href="#game-on-campus" label="explore" />
     </section>
   );
 };
