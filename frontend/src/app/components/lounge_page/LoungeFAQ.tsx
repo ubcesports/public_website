@@ -1,6 +1,6 @@
 import Disclosure from "./Disclosure";
 
-const faqs = [
+const FAQS = [
   {
     question: "What games can I play in the Lounge?",
     answer: (
