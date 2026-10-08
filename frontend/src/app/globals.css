@@ -12,6 +12,14 @@
   --teal: #b5f6ff;
   --space-purple: #1e19bf;
   --space-teal: #0891e1;
+
+  /* Event accents */
+  --liftoff-green: #42f268;
+  --static-fire-orange: #f04525;
+  --static-fire-yellow: #f5bc7f;
+  --cascadia-sky-blue: #8cecff;
+  --expo-purple: #b8aaff;
+  --attraction-gray: #151925;
 }
 
 @theme inline {
@@ -26,6 +34,12 @@
   --color-teal: var(--teal);
   --color-space-purple: var(--space-purple);
   --color-space-teal: var(--space-teal);
+  --color-liftoff-green: var(--liftoff-green);
+  --color-static-fire-orange: var(--static-fire-orange);
+  --color-static-fire-yellow: var(--static-fire-yellow);
+  --color-cascadia-sky-blue: var(--cascadia-sky-blue);
+  --color-expo-purple: var(--expo-purple);
+  --color-attraction-gray: var(--attraction-gray);
 
   --font-wordmark: var(--font-stretch-pro);
   --font-title: var(--font-ethnocentric);
