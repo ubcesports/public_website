@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { EVENTS } from "../../events/eventData";
+import { EVENTS, getEventHref } from "../../events/eventData";
 
 const heading = "Explore our events";
 
@@ -37,7 +37,7 @@ const ExploreEvents = ({ currentSlug }: ExploreEventsProps) => {
           {EVENTS.map((event) => (
             <li key={event.slug}>
               <Link
-                href={`/events/${event.slug}`}
+                href={getEventHref(event.slug)}
                 aria-current={event.slug === currentSlug ? "page" : undefined}
                 className={`
                   block rounded-[5px] px-6 py-4 lg:px-10 lg:py-5

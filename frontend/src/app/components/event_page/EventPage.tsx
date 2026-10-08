@@ -64,7 +64,7 @@ const EventPage = ({ event }: EventPageProps) => {
             <GradientButton
               href={event.exhibitorHall.button.href}
               gradient={event.theme.buttonGradient}
-              textSize="md:text-lg text-md"
+              textSize="text-base md:text-lg"
             >
               {event.exhibitorHall.button.label}
             </GradientButton>

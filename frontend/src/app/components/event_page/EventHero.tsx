@@ -16,7 +16,7 @@ const EventHero = ({ event }: EventHeroProps) => {
         src="/images/splash.jpg"
         alt=""
         fill
-        priority
+        preload
         sizes="100vw"
         className="object-cover object-center"
       />
@@ -43,7 +43,7 @@ const EventHero = ({ event }: EventHeroProps) => {
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
-                priority
+                loading="eager"
                 className={logo.imageClassName}
               />
             </span>

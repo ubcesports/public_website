@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import EventPage from "../../components/event_page/EventPage";
-import { EVENTS, getEvent } from "../eventData";
+import { EVENTS, FEATURED_EVENT_SLUG, getEvent } from "../eventData";
 
 // Only the events listed in eventData are valid, anything else 404s
 export const dynamicParams = false;
@@ -17,7 +17,14 @@ export async function generateMetadata({ params }: PageProps<"/events/[slug]">):
 }
 
 export default async function Event({ params }: PageProps<"/events/[slug]">) {
-  const event = getEvent((await params).slug);
+  const { slug } = await params;
+
+  // The featured event is shown on /events, so avoid serving it at two URLs
+  if (slug === FEATURED_EVENT_SLUG) {
+    redirect("/events");
+  }
+
+  const event = getEvent(slug);
 
   if (!event) {
     notFound();

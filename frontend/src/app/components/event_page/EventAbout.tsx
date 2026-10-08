@@ -29,7 +29,7 @@ const EventAbout = ({ event }: EventAboutProps) => {
           <GradientButton
             href={button.href}
             gradient={event.theme.buttonGradient}
-            textSize="md:text-lg text-md"
+            textSize="text-base md:text-lg"
           >
             {button.label}
           </GradientButton>

@@ -248,6 +248,10 @@ export const EVENTS: EventInfo[] = [
 // The event shown on /events. Change this when the next event is announced.
 export const FEATURED_EVENT_SLUG = "liftoff";
 
+// The featured event lives at /events, every other event at /events/<slug>
+export const getEventHref = (slug: string) =>
+  slug === FEATURED_EVENT_SLUG ? "/events" : `/events/${slug}`;
+
 export const getEvent = (slug: string) => EVENTS.find((event) => event.slug === slug);
 
 export const getFeaturedEvent = () => {
