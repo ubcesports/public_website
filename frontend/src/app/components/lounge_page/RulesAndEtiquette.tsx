@@ -18,23 +18,20 @@ const RulesAndEtiquette = () => {
           <span className="font-bold text-white">
             All lounge visitors (including UBCEA executives)
           </span>{" "}
-          must follow these guidelines or they may be removed from the lounge.
-          If you are ever unsure, please ask a UBCEA executive.
+          must follow these guidelines or they may be removed from the lounge. If you are ever
+          unsure, please ask a UBCEA executive.
         </p>
 
         <p className="mt-5 font-sans text-base leading-relaxed text-white/90 sm:text-lg">
-          Please bring a{" "}
-          <span className="font-bold text-white">piece of identification</span>{" "}
-          with you (e.g. UBC Card, Student ID or Government-issued ID) which
-          will be kept at the front desk for the duration of your stay. Remember
-          to pick it up before you leave!
+          Please bring a <span className="font-bold text-white">piece of identification</span> with
+          you (e.g. UBC Card, Student ID or Government-issued ID) which will be kept at the front
+          desk for the duration of your stay. Remember to pick it up before you leave!
         </p>
 
         <ul className="mt-6 ml-5 flex list-disc flex-col gap-2 font-sans text-base text-white/90 marker:text-teal sm:text-lg">
           <li>
             <span className="font-bold text-white">
-              Computer usage times must be followed for the user&rsquo;s
-              membership
+              Computer usage times must be followed for the user&rsquo;s membership
             </span>
             <ul className="mt-1 ml-5 list-disc marker:text-header-light-blue">
               <li>2 hours with a 30 minute break for lounge access members</li>
@@ -53,9 +50,7 @@ const RulesAndEtiquette = () => {
 
           <li>
             Please keep your belongings safe, as{" "}
-            <span className="font-bold text-white">
-              UBCEA is not responsible for loss or theft
-            </span>
+            <span className="font-bold text-white">UBCEA is not responsible for loss or theft</span>
           </li>
 
           <li>
@@ -67,8 +62,7 @@ const RulesAndEtiquette = () => {
 
           <li>
             <span className="font-bold text-white">
-              Slurs, loud yelling, and slamming the table are not allowed in the
-              lounge.
+              Slurs, loud yelling, and slamming the table are not allowed in the lounge.
             </span>{" "}
             Doing so can warrant a warning or removal from the space.
           </li>
