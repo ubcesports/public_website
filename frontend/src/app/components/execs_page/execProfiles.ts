@@ -1,4 +1,5 @@
-export type ExecDisplayGroup = "president" | "board" | "central_director" | "game_director" | "executive";
+export type ExecDisplayGroup =
+  "president" | "board" | "central_director" | "game_director" | "executive";
 
 export type ExecSocialPlatform = "instagram" | "x" | "twitch" | "youtube" | "tiktok" | "linkedin";
 
@@ -9,55 +10,70 @@ export type ExecSocialLink = {
 
 export type ExecProfile = {
   fullName: string;
-  profileImage: string | null;
+  avatarUrl: string | null;
   title: string;
   displayGroup: ExecDisplayGroup;
   socials: ExecSocialLink[];
 };
 
-export const EXEC_GROUP_ORDER: ExecDisplayGroup[] = [
-  "president",
-  "board",
-  "executive",
-  "central_director",
-  "game_director",
+export type GroupedExecs = Partial<Record<ExecDisplayGroup, ExecProfile[]>>;
+
+// Each section gets one header bar, and each display group inside it gets its own panel.
+export const EXEC_SECTIONS: { label: string; groups: ExecDisplayGroup[] }[] = [
+  { label: "PRESIDENTS & VPs", groups: ["president", "board"] },
+  { label: "CENTRAL DIRECTORS", groups: ["central_director"] },
+  { label: "GAME DIRECTORS", groups: ["game_director"] },
+  { label: "EXECUTIVES", groups: ["executive"] },
 ];
 
-export const EXEC_GROUP_LABELS: Record<ExecDisplayGroup, string> = {
-  president: "Presidents & VPs",
-  board: "Board of Directors",
-  executive: "Executives",
-  central_director: "Central Directors",
-  game_director: "Game Directors",
-};
+export const SOCIAL_PLATFORM_ORDER: ExecSocialPlatform[] = [
+  "instagram",
+  "x",
+  "twitch",
+  "youtube",
+  "tiktok",
+  "linkedin",
+];
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080";
 
-type RawExecSocialLink = {
-  platform: ExecSocialPlatform;
-  url: string;
-};
-
 type RawExecProfile = {
   full_name: string;
-  profile_image: string | null;
+  avatar_url: string | null;
   title: string;
   display_group: ExecDisplayGroup;
-  socials: RawExecSocialLink[] | null;
+  social_links: ExecSocialLink[] | null;
 };
 
-// The backend docs describe the response as "execs, grouped by display group" without
-// pinning down the exact shape, so we accept either a flat array or a pre-grouped object.
-type RawExecProfilesResponse = {
-  execs: RawExecProfile[] | Partial<Record<ExecDisplayGroup, RawExecProfile[]>>;
+// Groups with no members are left out of `execs`, and it's `{}` when there are no execs at all.
+// Each group's array is already sorted by display_order.
+type GetExecProfilesResponse = {
+  execs: Partial<Record<ExecDisplayGroup, RawExecProfile[]>>;
 };
 
-function normalizeExecs(raw: RawExecProfilesResponse["execs"]): RawExecProfile[] {
-  if (Array.isArray(raw)) return raw;
-  return Object.values(raw).flatMap((group) => group ?? []);
-}
+const isSafeUrl = (url: string) => {
+  try {
+    return ["https:", "http:"].includes(new URL(url).protocol);
+  } catch {
+    return false;
+  }
+};
 
-export async function getExecProfiles(): Promise<ExecProfile[]> {
+const toExecProfile = (exec: RawExecProfile): ExecProfile => ({
+  fullName: exec.full_name,
+  avatarUrl: exec.avatar_url,
+  title: exec.title,
+  displayGroup: exec.display_group,
+  // The backend doesn't validate platform or url, and returns links in no fixed order
+  socials: (exec.social_links ?? [])
+    .filter((link) => SOCIAL_PLATFORM_ORDER.includes(link.platform) && isSafeUrl(link.url))
+    .sort(
+      (a, b) =>
+        SOCIAL_PLATFORM_ORDER.indexOf(a.platform) - SOCIAL_PLATFORM_ORDER.indexOf(b.platform),
+    ),
+});
+
+export async function getExecProfiles(): Promise<GroupedExecs> {
   const res = await fetch(`${API_BASE_URL}/exec-profiles`, {
     next: { revalidate: 300 },
   });
@@ -66,25 +82,11 @@ export async function getExecProfiles(): Promise<ExecProfile[]> {
     throw new Error(`Failed to load exec profiles: ${res.status}`);
   }
 
-  const data: RawExecProfilesResponse = await res.json();
+  const data: GetExecProfilesResponse = await res.json();
 
-  return normalizeExecs(data.execs).map((exec) => ({
-    fullName: exec.full_name,
-    profileImage: exec.profile_image,
-    title: exec.title,
-    displayGroup: exec.display_group,
-    socials: exec.socials ?? [],
-  }));
-}
-
-export function groupExecsByDisplayGroup(
-  execs: ExecProfile[],
-): Partial<Record<ExecDisplayGroup, ExecProfile[]>> {
-  const groups: Partial<Record<ExecDisplayGroup, ExecProfile[]>> = {};
-
-  for (const exec of execs) {
-    (groups[exec.displayGroup] ??= []).push(exec);
+  const grouped: GroupedExecs = {};
+  for (const [group, execs] of Object.entries(data.execs ?? {})) {
+    grouped[group as ExecDisplayGroup] = (execs ?? []).map(toExecProfile);
   }
-
-  return groups;
+  return grouped;
 }

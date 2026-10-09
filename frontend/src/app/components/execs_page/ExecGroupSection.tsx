@@ -1,30 +1,42 @@
+import classNames from "classnames";
 import ExecCard from "./ExecCard";
 import type { ExecProfile } from "./execProfiles";
+import SectionTitle from "./SectionTitle";
 
 type ExecGroupSectionProps = {
   label: string;
-  execs: ExecProfile[];
+  // One panel per display group, in render order
+  panels: ExecProfile[][];
 };
 
-const ExecGroupSection = ({ label, execs }: ExecGroupSectionProps) => {
-  if (execs.length === 0) return null;
+const ExecGroupSection = ({ label, panels }: ExecGroupSectionProps) => {
+  const nonEmptyPanels = panels.filter((execs) => execs.length > 0);
+  if (nonEmptyPanels.length === 0) return null;
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-5 py-8 sm:px-8">
-      <div className="mb-6 bg-bg-dark-blue py-3 text-center">
-        <h2 className="font-header text-xl uppercase tracking-wide text-white sm:text-2xl">
-          {label}
-        </h2>
-      </div>
+    <section className="w-full pt-5">
+      <SectionTitle>{label}</SectionTitle>
 
-      <div className="rounded-lg border border-accent-blue/60 bg-white/5 p-6 sm:p-8">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
-          {execs.map((exec, index) => (
-            <ExecCard key={`${exec.fullName}-${index}`} exec={exec} />
-          ))}
-        </div>
+      <div className="flex flex-col gap-2">
+        {nonEmptyPanels.map((execs, panelIndex) => (
+          <div key={panelIndex} className="px-4 py-10 sm:px-8">
+            <div
+              className={classNames(
+                "mx-auto grid gap-x-6 gap-y-10",
+                // Small groups (e.g. the presidents) sit centred instead of hugging the left
+                execs.length < 4
+                  ? "max-w-3xl grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]"
+                  : "max-w-6xl grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
+              )}
+            >
+              {execs.map((exec, index) => (
+                <ExecCard key={`${exec.fullName}-${index}`} exec={exec} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
