@@ -188,4 +188,27 @@ export const COMP_TEAMS: CompTeam[] = [
       { fullName: "Vlad Pirvoaica" },
     ],
   },
+  {
+    game: "osu!",
+    imageSrc: "/departments/rg.jpg",
+    teamName: "UBC A",
+    players: [
+      { fullName: "Jacob del Callar", ign: "hippocripp", role: "Captain" },
+      { fullName: "Marcus Chang", ign: "Electric65" },
+      { fullName: "Carter Lay", ign: "Celestialer" },
+      { fullName: "Anthony Le", ign: "bean juice" },
+      { fullName: "Brahm Wongwandanee", ign: "brahm" },
+    ],
+  },
+  {
+    game: "osu!",
+    imageSrc: "/departments/rg.jpg",
+    teamName: "UBC B",
+    players: [
+      { fullName: "Benjamin Lee", ign: "BenTheBen", role: "Captain" },
+      { fullName: "Glen Zhu", ign: "CGCXeno" },
+      { fullName: "Munn Chai", ign: "SwagChungusIron" },
+      { fullName: "Bennett Ryu", ign: "Xelious" },
+    ],
+  },
 ];
