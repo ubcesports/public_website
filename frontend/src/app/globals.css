@@ -32,6 +32,7 @@
   --font-header: var(--font-haverbrooke);
   --font-hollow: var(--font-haverbrooke-hollow);
   --font-game: var(--font-lexend-exa);
+  --font-russo: var(--font-russo-one);
   --font-sans: var(--font-nata-sans);
   --font-mono: var(--font-cascadia-mono);
 }
