@@ -82,7 +82,11 @@ const EventPage = ({ event }: EventPageProps) => {
         <EventSection id="sponsors" heading="Sponsors" accentText={accentText} centered>
           <p className={bodyClasses}>{event.sponsors.message}</p>
           {event.sponsors.items.length > 0 && (
-            <EventSponsors sponsors={event.sponsors.items} accentText={accentText} />
+            <EventSponsors
+              sponsors={event.sponsors.items}
+              accentText={accentText}
+              cardHover={event.theme.cardHover}
+            />
           )}
         </EventSection>
 

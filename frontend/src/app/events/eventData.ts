@@ -1,3 +1,5 @@
+import { DEPARTMENTS } from "../departments/departmentData";
+
 // Content and theming for each event page, rendered by app/events/[slug]/page.tsx.
 // Tailwind classes are written out in full so they get picked up at build time.
 
@@ -16,8 +18,9 @@ export type EventLogo =
 
 export type EventCard = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   imageSrc: string;
+  href?: string;
 };
 
 export type EventImage = {
@@ -44,6 +47,8 @@ export type EventTheme = {
   heroOverlay: string;
   pageGradient: string;
   buttonGradient: string;
+  // Border + soft glow on hover for cards like sponsors
+  cardHover: string;
 };
 
 export type EventInfo = {
@@ -88,11 +93,11 @@ const SHARED_FAQS: EventFAQ[] = [
   },
 ];
 
-// TODO: replace with the real attractions/events once they're announced
-const PLACEHOLDER_CARDS: EventCard[] = Array.from({ length: 9 }, () => ({
-  title: "Rainbow Six: Siege",
-  subtitle: "Shooting Range Challenge",
-  imageSrc: "/events/attraction_r6.jpg",
+// Each game department hosts an attraction, linking to its department page
+const DEPARTMENT_CARDS: EventCard[] = DEPARTMENTS.map(({ title, href, imageSrc }) => ({
+  title,
+  href,
+  imageSrc,
 }));
 
 const SPONSOR_MESSAGE = "Thank you to our sponsors for helping make this event possible!";
@@ -110,6 +115,8 @@ export const EVENTS: EventInfo[] = [
       heroOverlay: "bg-linear-to-b from-[rgb(28_72_185/0)] to-[rgb(255_168_92/0.73)]",
       pageGradient: "bg-linear-to-b from-bg-dark-blue from-[17.8%] to-[#71462b]",
       buttonGradient: "bg-linear-to-r from-static-fire-yellow to-static-fire-orange",
+      cardHover:
+        "hover:border-static-fire-orange/50 hover:shadow-[0_0_24px_color-mix(in_srgb,var(--static-fire-orange)_45%,transparent)]",
     },
     hero: {
       logo: {
@@ -131,7 +138,7 @@ export const EVENTS: EventInfo[] = [
       body: "Come play in a series of casual tournaments, LANs, and minigames to meet friends and have fun! Join the raffle and participate in as many games as possible to increase your chances of winning prizes.",
       button: { label: "Join Our Discord", href: DISCORD_URL },
     },
-    cards: { heading: "Events", items: PLACEHOLDER_CARDS },
+    cards: { heading: "Events", items: DEPARTMENT_CARDS },
     gallery: [],
     sponsors: { message: SPONSOR_MESSAGE, items: [] },
     faqs: SHARED_FAQS,
@@ -146,6 +153,8 @@ export const EVENTS: EventInfo[] = [
       heroOverlay: "bg-linear-to-b from-[rgb(28_72_185/0)] to-[rgb(92_255_141/0.73)]",
       pageGradient: "bg-linear-to-b from-bg-dark-blue from-[17.8%] to-[#264d37]",
       buttonGradient: "bg-linear-to-r from-space-teal to-liftoff-green",
+      cardHover:
+        "hover:border-liftoff-green/50 hover:shadow-[0_0_24px_color-mix(in_srgb,var(--liftoff-green)_45%,transparent)]",
     },
     hero: {
       logo: {
@@ -165,7 +174,7 @@ export const EVENTS: EventInfo[] = [
       date: "5pm - 9pm October 9th, 2026",
       body: "Come join us and meet other gamers in the community at our annual icebreaker event! Test your video game knowledge in trivia, face-off others in 1v1s, or pick up some Red Bull and just hangout for the vibes. Finally, enter the raffle for a chance to win cool prizes at the end!",
     },
-    cards: { heading: "Attractions", items: PLACEHOLDER_CARDS },
+    cards: { heading: "Attractions", items: DEPARTMENT_CARDS },
     // Every 6th photo (starting with the first) is shown larger, so use multiples of 3
     gallery: [
       {
@@ -251,6 +260,8 @@ export const EVENTS: EventInfo[] = [
       heroOverlay: "bg-linear-to-b from-[rgb(28_72_185/0)] to-[rgb(92_241_255/0.73)]",
       pageGradient: "bg-linear-to-b from-bg-dark-blue from-[17.8%] to-[#576776]",
       buttonGradient: "bg-linear-to-r from-teal to-cascadia-sky-blue",
+      cardHover:
+        "hover:border-cascadia-sky-blue/50 hover:shadow-[0_0_24px_color-mix(in_srgb,var(--cascadia-sky-blue)_45%,transparent)]",
     },
     hero: {
       logo: { kind: "text", text: "cascadia cup" },
@@ -264,7 +275,7 @@ export const EVENTS: EventInfo[] = [
       // TODO: add the ticket link once sales open
       button: { label: "Buy Tickets", href: "#" },
     },
-    cards: { heading: "Events", items: PLACEHOLDER_CARDS },
+    cards: { heading: "Events", items: DEPARTMENT_CARDS },
     gallery: [],
     sponsors: { message: SPONSOR_MESSAGE, items: [] },
     faqs: SHARED_FAQS,
@@ -279,6 +290,8 @@ export const EVENTS: EventInfo[] = [
       heroOverlay: "bg-linear-to-b from-bg-gray/73 to-expo-purple/73",
       pageGradient: "bg-linear-to-b from-bg-dark-blue from-[41.8%] to-[#2618a8]",
       buttonGradient: "bg-linear-to-r from-darker-light-blue to-expo-purple",
+      cardHover:
+        "hover:border-expo-purple/50 hover:shadow-[0_0_24px_color-mix(in_srgb,var(--expo-purple)_45%,transparent)]",
     },
     hero: {
       logo: {
@@ -306,7 +319,7 @@ export const EVENTS: EventInfo[] = [
       width: 1406,
       height: 1118,
     },
-    cards: { heading: "Attractions", items: PLACEHOLDER_CARDS },
+    cards: { heading: "Attractions", items: DEPARTMENT_CARDS },
     exhibitorHall: {
       map: {
         src: "/events/expo_exhibitor_hall.png",
