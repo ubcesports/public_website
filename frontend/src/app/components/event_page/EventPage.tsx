@@ -4,8 +4,10 @@ import GradientButton from "../GradientButton";
 import Disclosure from "../lounge_page/Disclosure";
 import EventAbout from "./EventAbout";
 import EventCardGrid from "./EventCardGrid";
+import EventGallery from "./EventGallery";
 import EventHero from "./EventHero";
 import EventSection from "./EventSection";
+import EventSponsors from "./EventSponsors";
 import ExploreEvents from "./ExploreEvents";
 
 const bodyClasses = "font-sans text-base text-white sm:text-lg";
@@ -72,26 +74,16 @@ const EventPage = ({ event }: EventPageProps) => {
         )}
 
         {event.gallery.length > 0 && (
-          <EventSection id="gallery" heading="Gallery" accentText={accentText}>
-            <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {event.gallery.map((image) => (
-                <li key={image.src}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={image.width}
-                    height={image.height}
-                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
-                    className="h-auto w-full rounded-[5px]"
-                  />
-                </li>
-              ))}
-            </ul>
+          <EventSection id="gallery" heading="Gallery" accentText={accentText} centered wide>
+            <EventGallery images={event.gallery} />
           </EventSection>
         )}
 
-        <EventSection id="sponsors" heading="Sponsors" accentText={accentText}>
+        <EventSection id="sponsors" heading="Sponsors" accentText={accentText} centered>
           <p className={bodyClasses}>{event.sponsors.message}</p>
+          {event.sponsors.items.length > 0 && (
+            <EventSponsors sponsors={event.sponsors.items} accentText={accentText} />
+          )}
         </EventSection>
 
         <EventSection id="faq" heading="FAQ" accentText={accentText}>

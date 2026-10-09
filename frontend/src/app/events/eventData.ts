@@ -27,6 +27,13 @@ export type EventImage = {
   height: number;
 };
 
+export type Sponsor = {
+  name: string;
+  href: string;
+  description: string;
+  logo: EventImage;
+};
+
 export type EventFAQ = {
   question: string;
   answer: string;
@@ -62,7 +69,7 @@ export type EventInfo = {
   cards: { heading: string; items: EventCard[] };
   exhibitorHall?: { map: EventImage; button: { label: string; href: string } };
   gallery: EventImage[];
-  sponsors: { message: string };
+  sponsors: { message: string; items: Sponsor[] };
   faqs: EventFAQ[];
 };
 
@@ -126,7 +133,7 @@ export const EVENTS: EventInfo[] = [
     },
     cards: { heading: "Events", items: PLACEHOLDER_CARDS },
     gallery: [],
-    sponsors: { message: SPONSOR_MESSAGE },
+    sponsors: { message: SPONSOR_MESSAGE, items: [] },
     faqs: SHARED_FAQS,
   },
   {
@@ -159,8 +166,79 @@ export const EVENTS: EventInfo[] = [
       body: "Come join us and meet other gamers in the community at our annual icebreaker event! Test your video game knowledge in trivia, face-off others in 1v1s, or pick up some Red Bull and just hangout for the vibes. Finally, enter the raffle for a chance to win cool prizes at the end!",
     },
     cards: { heading: "Attractions", items: PLACEHOLDER_CARDS },
-    gallery: [],
-    sponsors: { message: SPONSOR_MESSAGE },
+    // Every 6th photo (starting with the first) is shown larger, so use multiples of 3
+    gallery: [
+      {
+        src: "/events/liftoff/gallery_1.jpg",
+        alt: "Game department leads holding up signs for their games in front of the crowd",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_2.jpg",
+        alt: "An attendee playing on one of the gaming PCs",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_3.jpg",
+        alt: "The crowd watching the game department introductions",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_4.jpg",
+        alt: "Attendees playing Nintendo Switch games together",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_5.jpg",
+        alt: "An attendee grabbing a Red Bull from the fridge",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_6.jpg",
+        alt: "The host speaking on stage",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_7.jpg",
+        alt: "Game department leads holding up Overwatch, Rocket League and Rhythm Games signs",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_8.jpg",
+        alt: "UBCEA competitive team members posing in their jerseys",
+        width: 1800,
+        height: 1200,
+      },
+      {
+        src: "/events/liftoff/gallery_9.jpg",
+        alt: "The Rhythm Games sign in front of the rhythm game area",
+        width: 1800,
+        height: 1200,
+      },
+    ],
+    sponsors: {
+      message: SPONSOR_MESSAGE,
+      items: [
+        {
+          name: "Tipsy Audio",
+          href: "https://tipsyaudio.com/",
+          description: "In-ear monitors tuned for music lovers, competitive gamers and performers.",
+          logo: {
+            src: "/events/sponsors/tipsy_audio.png",
+            alt: "Tipsy Audio",
+            width: 800,
+            height: 232,
+          },
+        },
+      ],
+    },
     faqs: SHARED_FAQS,
   },
   {
@@ -188,7 +266,7 @@ export const EVENTS: EventInfo[] = [
     },
     cards: { heading: "Events", items: PLACEHOLDER_CARDS },
     gallery: [],
-    sponsors: { message: SPONSOR_MESSAGE },
+    sponsors: { message: SPONSOR_MESSAGE, items: [] },
     faqs: SHARED_FAQS,
   },
   {
@@ -240,7 +318,7 @@ export const EVENTS: EventInfo[] = [
       button: { label: "Apply to Be a Vendor!", href: "#" },
     },
     gallery: [],
-    sponsors: { message: SPONSOR_MESSAGE },
+    sponsors: { message: SPONSOR_MESSAGE, items: [] },
     faqs: SHARED_FAQS,
   },
 ];
