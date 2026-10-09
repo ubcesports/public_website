@@ -32,8 +32,9 @@ const OurTeams = () => {
           </span>
         </div>
 
-        {/* Team cards */}
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
+        {/* Team cards. From 1120px each card is ≥32rem wide, which is when TeamCard
+            splits players into 2 columns (@lg); only then do cards stretch to match their row. */}
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 min-[1120px]:items-stretch">
           {COMP_TEAMS.map((team) => (
             <TeamCard key={`${team.game}-${team.teamName}`} team={team} />
           ))}

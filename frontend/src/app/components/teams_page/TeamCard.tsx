@@ -26,7 +26,7 @@ const PlayerRow = ({ player }: { player: CompPlayer }) => {
 
 const TeamCard = ({ team }: TeamCardProps) => {
   return (
-    <article className="overflow-hidden rounded bg-linear-to-b from-bg-dark-blue to-accent-blue/90 shadow-[0_6px_10px_rgb(14_19_54/45%)]">
+    <article className="@container overflow-hidden rounded bg-linear-to-b from-bg-dark-blue to-accent-blue/90 shadow-[0_6px_10px_rgb(14_19_54/45%)]">
       {/* Game banner */}
       <div className="relative h-20 w-full sm:h-24">
         <Image
@@ -54,7 +54,7 @@ const TeamCard = ({ team }: TeamCardProps) => {
           Players
         </h4>
 
-        <ul className="flex flex-col gap-2.5">
+        <ul className="grid grid-cols-1 gap-2.5 @lg:auto-rows-fr @lg:grid-cols-2">
           {team.players.map((player) => (
             <PlayerRow key={`${player.fullName}-${player.role ?? ""}`} player={player} />
           ))}

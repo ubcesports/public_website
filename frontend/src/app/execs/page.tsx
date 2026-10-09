@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import ExecGroupSection from "../components/execs_page/ExecGroupSection";
 import ExecsHero from "../components/execs_page/ExecsHero";
 import OurTeamBanner from "../components/execs_page/OurTeamBanner";
+import WebsiteCredits from "../components/execs_page/WebsiteCredits";
 import {
-  EXEC_GROUP_LABELS,
-  EXEC_GROUP_ORDER,
+  EXEC_SECTIONS,
   getExecProfiles,
-  groupExecsByDisplayGroup,
+  type GroupedExecs,
 } from "../components/execs_page/execProfiles";
 
 export const metadata: Metadata = {
@@ -15,38 +15,42 @@ export const metadata: Metadata = {
 };
 
 export default async function Execs() {
-  let groupedExecs: ReturnType<typeof groupExecsByDisplayGroup> = {};
+  let groupedExecs: GroupedExecs = {};
   let loadFailed = false;
 
   try {
-    const execs = await getExecProfiles();
-    groupedExecs = groupExecsByDisplayGroup(execs);
+    groupedExecs = await getExecProfiles();
   } catch (error) {
     console.error("Failed to load exec profiles", error);
     loadFailed = true;
   }
 
+  const hasExecs = Object.values(groupedExecs).some((execs) => execs && execs.length > 0);
+
   return (
     <main>
       <ExecsHero />
 
-      {/* Dark blue to indigo gradient behind the rest of the page */}
-      <div className="w-full bg-linear-to-b from-bg-dark-blue from-15% to-bg-indigo pb-16">
+      <div className="w-full bg-bg-dark-blue">
         <OurTeamBanner />
 
-        {loadFailed ? (
+        {loadFailed || !hasExecs ? (
           <p className="mx-auto max-w-2xl px-5 py-16 text-center font-sans text-lg text-white/80">
-            We couldn&apos;t load the executive team right now. Please check back soon.
+            {loadFailed
+              ? "We couldn't load the executive team right now. Please check back soon."
+              : "Our executive team for this year will be announced soon."}
           </p>
         ) : (
-          EXEC_GROUP_ORDER.map((group) => (
+          EXEC_SECTIONS.map(({ label, groups }) => (
             <ExecGroupSection
-              key={group}
-              label={EXEC_GROUP_LABELS[group]}
-              execs={groupedExecs[group] ?? []}
+              key={label}
+              label={label}
+              panels={groups.map((group) => groupedExecs[group] ?? [])}
             />
           ))
         )}
+
+        <WebsiteCredits />
       </div>
     </main>
   );
