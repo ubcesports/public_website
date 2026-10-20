@@ -45,7 +45,7 @@ export default function SplashPage() {
           September 25TH, 2026 - AMS Nest Great Hall
         </span>
 
-        <GradientButton href="/events/liftoff" textSize="md:text-xl text-md">
+        <GradientButton href="/events" textSize="md:text-xl text-md">
           learn more
         </GradientButton>
       </div>

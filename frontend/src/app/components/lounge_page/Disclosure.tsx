@@ -6,6 +6,7 @@ type DisclosureProps = {
   children: ReactNode;
   defaultOpen?: boolean;
   summaryClasses?: string;
+  iconClasses?: string;
 };
 
 const Disclosure = ({
@@ -13,6 +14,7 @@ const Disclosure = ({
   children,
   defaultOpen = true,
   summaryClasses = "font-sans text-base font-bold text-white sm:text-lg",
+  iconClasses = "text-teal",
 }: DisclosureProps) => {
   return (
     <details open={defaultOpen} className="group">
@@ -29,7 +31,7 @@ const Disclosure = ({
       >
         <ChevronRight
           aria-hidden="true"
-          className="size-4 shrink-0 text-teal transition-transform duration-200 group-open:rotate-90 sm:size-5"
+          className={`size-4 shrink-0 ${iconClasses} transition-transform duration-200 group-open:rotate-90 sm:size-5`}
           strokeWidth={3}
         />
         <span className={summaryClasses}>{summary}</span>
