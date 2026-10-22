@@ -1,5 +1,9 @@
 import Image from "next/image";
 
+interface TeamsProps {
+  playerCardImage: string;
+}
+
 const roles = ["Top", "Jungle", "Mid", "Bot", "Support"] as const;
 
 const teams = [
@@ -7,7 +11,7 @@ const teams = [
   { name: "Tournament Team Name", tier: "Tier 2: B Team" },
 ] as const;
 
-function PlayerCard({ role }: { role: (typeof roles)[number] }) {
+function PlayerCard({ role, playerCardImage }: { role: (typeof roles)[number]; playerCardImage: string }) {
   return (
     <article className="flex min-w-0 flex-col items-center gap-[10px] rounded-[13px] bg-bg-dark-blue px-3 py-4 text-center sm:px-4 sm:py-5 lg:h-[563px] lg:px-4 lg:py-7">
       <div
@@ -15,7 +19,7 @@ function PlayerCard({ role }: { role: (typeof roles)[number] }) {
         className="relative flex aspect-[169/250] w-full shrink-0 items-center justify-center overflow-hidden bg-bg-dark-blue"
       >
         <Image
-          src="/department_pages/ubceaBANG.png"
+          src={playerCardImage}
           alt=""
           fill
           sizes="(min-width: 1024px) 267px, 42vw"
@@ -37,7 +41,7 @@ function PlayerCard({ role }: { role: (typeof roles)[number] }) {
   );
 }
 
-export default function LeagueTeams() {
+export default function Teams({ playerCardImage }: TeamsProps) {
   return (
     <section id="competitive-teams" className="w-full">
       <div className="overflow-hidden bg-linear-to-r from-teal to-darker-light-blue px-5 py-10 sm:px-8 sm:py-12 lg:h-[283px] lg:px-14 lg:py-[71px]">
@@ -81,7 +85,7 @@ export default function LeagueTeams() {
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:gap-[38px]">
               {roles.map((role) => (
-                <PlayerCard key={`${team.tier}-${role}`} role={role} />
+                <PlayerCard key={`${team.tier}-${role}`} role={role} playerCardImage={playerCardImage} />
               ))}
             </div>
           </section>

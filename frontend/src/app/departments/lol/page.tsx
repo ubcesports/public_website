@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
-import LeagueAbout from "../../components/departments_page/LeagueAbout";
-import LeagueDirectors from "../../components/departments_page/LeagueDirectors";
-import LeagueEvents from "../../components/departments_page/LeagueEvents";
-import LeagueHero from "../../components/departments_page/LeagueHero";
-import LeagueStickerStrip from "../../components/departments_page/LeagueStickerStrip";
-import LeagueTeams from "../../components/departments_page/LeagueTeams";
+import Hero from "../../components/departments_page/generic/Hero";
+import About from "../../components/departments_page/generic/About";
+import Events from "../../components/departments_page/generic/Events";
+import Teams from "../../components/departments_page/generic/Teams";
+import Directors from "../../components/departments_page/generic/Directors";
+// import StickerStrip from "../../components/departments_page/generic/StickerStrip";
+import { gameData } from "../../../constants/gameData";
+
+const game = gameData.lol;
 
 export const metadata: Metadata = {
-  title: "League of Legends",
-  description: "Meet the UBC Esports League of Legends community and teams.",
+  title: game.name,
+  description: game.description,
 };
 
-export default function LeagueOfLegendsPage() {
+export default function GamePage() {
   return (
     <main className="w-full bg-bg-dark-blue text-white">
-      <LeagueHero />
+      <Hero title={game.name} imageSrc={game.heroImage} />
       <div className="w-full bg-linear-to-b from-bg-dark-blue from-15% to-bg-indigo">
-        <LeagueAbout />
-        <LeagueEvents />
-        <LeagueStickerStrip />
-        <LeagueTeams />
-        <LeagueDirectors />
+        <About imageSrc={game.aboutImage} description={game.aboutText} />
+        <Events imageSrc={game.eventsImage} location={game.location} events={game.events} />
+        {/* Photo gallery: re-enable once we have photos. */}
+        {/* <StickerStrip images={game.stickerStripImages} /> */}
+        <Teams playerCardImage={game.playerCardImage} />
+        <Directors directors={game.directors} />
       </div>
     </main>
   );

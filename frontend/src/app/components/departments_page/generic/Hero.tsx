@@ -1,11 +1,16 @@
 import Image from "next/image";
-import ScrollDownButton from "../ScrollDownButton";
+import ScrollDownButton from "../../ScrollDownButton";
 
-export default function LeagueHero() {
+interface HeroProps {
+  title: string;
+  imageSrc: string;
+}
+
+export default function Hero({ title, imageSrc }: HeroProps) {
   return (
-    <section className="relative isolate flex min-h-svh w-full flex-col items-center justify-center gap-8 overflow-hidden px-5 py-24 text-center lg:aspect-[1728/1186] lg:min-h-0 lg:gap-[69px] lg:p-0">
+    <section className="relative isolate flex min-h-svh w-full flex-col items-center justify-center gap-8 overflow-hidden px-5 py-24 text-center lg:gap-[69px]">
       <Image
-        src="/department_pages/lol_hero.jpg"
+        src={imageSrc}
         alt=""
         fill
         priority
@@ -47,7 +52,7 @@ export default function LeagueHero() {
       </div>
 
       <h1 className="w-full max-w-[1372px] bg-linear-to-r from-teal to-darker-light-blue bg-clip-text font-title text-[clamp(2rem,5.556vw,6rem)] uppercase leading-tight text-transparent drop-shadow-[4px_6px_0.5px_var(--bg-gray)] md:whitespace-nowrap lg:min-h-[108px] lg:leading-[1]">
-        League of Legends
+        {title}
       </h1>
 
       <ScrollDownButton href="#about" label="explore" />
