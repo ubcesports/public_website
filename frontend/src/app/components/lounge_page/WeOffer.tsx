@@ -11,11 +11,7 @@ const arcadeCabs = [
   {
     name: "CHUNITHM",
     cabs: "1 Cab",
-    details: [
-      "$1 / Set (3 Songs)",
-      "Mythos Private Server",
-      "Phone holder for recording",
-    ],
+    details: ["$1 / Set (3 Songs)", "Mythos Private Server", "Phone holder for recording"],
   },
   {
     name: "WACCA",
@@ -46,16 +42,12 @@ const WeOffer = () => {
         <div className="flex flex-col gap-6">
           <Disclosure summary="20 High Spec PCs">
             <p className="font-sans text-base text-white/90 sm:text-lg">
-              <span className="font-bold text-white">CPU:</span> Intel&reg;
-              Core&trade; i7-11700
+              <span className="font-bold text-white">CPU:</span> Intel&reg; Core&trade; i7-11700
             </p>
             <p className="font-sans text-base text-white/90 sm:text-lg">
-              <span className="font-bold text-white">GPU:</span> GeForce GTX
-              1660 SUPER
+              <span className="font-bold text-white">GPU:</span> GeForce GTX 1660 SUPER
             </p>
-            <p className="font-sans text-base font-bold text-white sm:text-lg">
-              Peripherals:
-            </p>
+            <p className="font-sans text-base font-bold text-white sm:text-lg">Peripherals:</p>
             <ul className={listClasses}>
               {pcPeripherals.map((item) => (
                 <li key={item}>{item}</li>
@@ -67,8 +59,7 @@ const WeOffer = () => {
             {arcadeCabs.map((cab) => (
               <div key={cab.name} className="mb-3 last:mb-0">
                 <p className="font-sans text-base text-white/90 sm:text-lg">
-                  <span className="font-bold text-white">{cab.name}:</span>{" "}
-                  {cab.cabs}
+                  <span className="font-bold text-white">{cab.name}:</span> {cab.cabs}
                 </p>
                 <ul className={listClasses}>
                   {cab.details.map((detail) => (

@@ -5,14 +5,11 @@ const FAQS = [
     question: "What games can I play in the Lounge?",
     answer: (
       <>
-        We have most popular games installed on our PCs, however if you have a
-        different game you want to play you{" "}
-        <span className="font-bold text-white">
-          may ask an executive if you can install it
-        </span>{" "}
-        onto a PC. Please note that we may not be able to accommodate installing
-        larger games or apps since we have limited storage space on our
-        computers.
+        We have most popular games installed on our PCs, however if you have a different game you
+        want to play you{" "}
+        <span className="font-bold text-white">may ask an executive if you can install it</span>{" "}
+        onto a PC. Please note that we may not be able to accommodate installing larger games or
+        apps since we have limited storage space on our computers.
       </>
     ),
   },
@@ -20,9 +17,8 @@ const FAQS = [
     question: "Can I bring friends to the Lounge?",
     answer: (
       <>
-        Everyone who enters must have a membership or a day pass to play in the
-        lounge. Please also note we cannot guarantee you will have adjacent
-        seats depending on availability.
+        Everyone who enters must have a membership or a day pass to play in the lounge. Please also
+        note we cannot guarantee you will have adjacent seats depending on availability.
       </>
     ),
   },
@@ -30,9 +26,8 @@ const FAQS = [
     question: "Can I bring my own peripherals?",
     answer: (
       <>
-        You may bring any peripherals (e.g. controllers, mice, keyboards),
-        however UBCEA is not responsible for loss or theft of any personal
-        items.
+        You may bring any peripherals (e.g. controllers, mice, keyboards), however UBCEA is not
+        responsible for loss or theft of any personal items.
       </>
     ),
   },

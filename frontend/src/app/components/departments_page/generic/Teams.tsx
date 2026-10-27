@@ -11,7 +11,13 @@ const teams = [
   { name: "Tournament Team Name", tier: "Tier 2: B Team" },
 ] as const;
 
-function PlayerCard({ role, playerCardImage }: { role: (typeof roles)[number]; playerCardImage: string }) {
+function PlayerCard({
+  role,
+  playerCardImage,
+}: {
+  role: (typeof roles)[number];
+  playerCardImage: string;
+}) {
   return (
     <article className="flex min-w-0 flex-col items-center gap-[10px] rounded-[13px] bg-bg-dark-blue px-3 py-4 text-center sm:px-4 sm:py-5 lg:h-[563px] lg:px-4 lg:py-7">
       <div
@@ -78,14 +84,17 @@ export default function Teams({ playerCardImage }: TeamsProps) {
               <h3 className="font-russo text-[clamp(2rem,3.704vw,4rem)] font-normal uppercase leading-[1]">
                 {team.name}
                 <span className="block font-sans text-[clamp(1rem,1.831vw,1.977rem)] font-bold leading-[1] text-[#95b3ff]">
-                  {team.tier}{" "}
-                  <span className="normal-case font-normal">(any additional info)</span>
+                  {team.tier} <span className="normal-case font-normal">(any additional info)</span>
                 </span>
               </h3>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:gap-[38px]">
               {roles.map((role) => (
-                <PlayerCard key={`${team.tier}-${role}`} role={role} playerCardImage={playerCardImage} />
+                <PlayerCard
+                  key={`${team.tier}-${role}`}
+                  role={role}
+                  playerCardImage={playerCardImage}
+                />
               ))}
             </div>
           </section>
