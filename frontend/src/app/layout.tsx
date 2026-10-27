@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cascadia_Mono, Lexend_Exa, Nata_Sans } from "next/font/google";
+import { Cascadia_Mono, Lexend_Exa, Nata_Sans, Russo_One } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import Header from "./components/header/Header";
@@ -39,6 +39,12 @@ const lexendExa = Lexend_Exa({
   weight: "variable",
 });
 
+const russoOne = Russo_One({
+  variable: "--font-russo-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 // Body
 const nataSans = Nata_Sans({
   variable: "--font-nata-sans",
@@ -73,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         haverbrooke.variable,
         haverbrookeHollow.variable,
         lexendExa.variable,
+        russoOne.variable,
         nataSans.variable,
         cascadiaMono.variable,
         "h-full antialiased",
